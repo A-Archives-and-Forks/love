@@ -1870,7 +1870,7 @@ static Buffer *luax_newbuffer(lua_State *L, int idx, Buffer::Settings settings, 
 		tableoftables = lua_istable(L, -1);
 		lua_pop(L, 1);
 
-		if (!tableoftables)
+		if (!tableoftables && ncomponents > 0)
 		{
 			if (arraylength % ncomponents != 0)
 				luaL_error(L, "Array length in flat array variant of newBuffer must be a multiple of the total number of components (%d)", ncomponents);
