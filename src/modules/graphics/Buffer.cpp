@@ -117,8 +117,8 @@ Buffer::Buffer(Graphics *gfx, const Settings &settings, const std::vector<DataDe
 
 		if (texelbuffer)
 		{
-			if (format != bufferformat[0].format)
-				throw love::Exception("All values in a texel buffer must have the same format.");
+			if (bufferformat.size() > 1)
+				throw love::Exception("Texel buffers only support a single value per element.");
 
 			if (decl.arrayLength > 0)
 				throw love::Exception("Arrays are not supported in texel buffers.");
